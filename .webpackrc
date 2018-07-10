@@ -1,0 +1,24 @@
+{
+  "extraBabelPlugins": [
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": true
+    }]
+  ],
+  "disableCSSModules": false,
+  "proxy": {
+      "/api": {
+        "target": "http://datainfo.duapp.com",
+        "changeOrigin": true,
+        "pathRewrite": { "^/api" : "" }
+      }
+  },
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr"
+      ]
+    }
+  }
+}
