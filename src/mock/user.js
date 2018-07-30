@@ -47,7 +47,7 @@ if (!global.tableListData) {
 
 module.exports = {
   //post请求  /api/users/ 是拦截的地址   方法内部接受 request response对象
-  'GET /users' (req, res) {
+  'GET /api1/users' (req, res) {
     const page = qs.parse(req.query);
     const pageSize = page.pageSize || 10;
     const currentPage = page.page || 1;

@@ -1,12 +1,13 @@
 /**
  * Created by mapbar_front on 2018/7/10.
  */
-import fetchUsers from '../services/users';
+// import fetchUsers from '../services/users';
+import { getUser } from '../services/users';
 export default {
   namespace: 'user',
   state: {
-    username: 'mapbar_front',
-    password: '123456',
+    username: 'guest',
+    password: 'guest',
     users: []
   },
   reducers: {
@@ -16,13 +17,14 @@ export default {
     save(state, action) {
       return {
         ...state,
-        list: action.data
+        users: action.data
       }
     }
   },
   effects: {
-    *fetch (action, { put, call }){
-      const users = yield call(fetchUsers, action.data);
+    *fetch (action, { call, put }){
+      const users = yield call(getUser, action.data);
+      console.log(users);
       yield put({ type: 'save', data: users });
     }
   },

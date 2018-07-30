@@ -1,4 +1,5 @@
 import fetch from 'dva/fetch';
+import axios from 'axios';
 
 function parseJSON(response) {
   return response.json();
@@ -27,4 +28,10 @@ export default function request(url, options) {
     .then(parseJSON)
     .then(data => ({ data }))
     .catch(err => ({ err }));
+}
+export function get(param) {
+  return axios.get('/api1/users').then(res => {
+    console.log('users',res)
+    return res
+  })
 }

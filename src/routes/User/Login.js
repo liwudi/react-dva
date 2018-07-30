@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/7/10.
  */
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import Styles from './Login.less'
@@ -12,8 +12,7 @@ class Login extends Component{
   constructor(props){
     super(props);
     this.state = {
-      username: props.user.username || '',
-      password: props.user.password || '',
+      errMessage: '',
     }
   }
   handleSubmit = (e) => {
@@ -21,7 +20,11 @@ class Login extends Component{
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.props.dispatch(routerRedux.push('/index'));
+        if (values.username !== this.props.user.username || values.username !== this.props.user.username) {
+          this.state.errMessage = "用户名或密码错误";
+        } else {
+          this.props.dispatch(routerRedux.push('/index'));
+        }
       }
     });
   }
@@ -29,13 +32,17 @@ class Login extends Component{
     console.log('user Props', this.props);
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className="center wrap">
+      <div className="center wrapper">
         <div className={Styles.loginForm}>
-          <Form onSubmit={this.handleSubmit}>
+          {
+            this.state.errMessage ? (
+              <Alert banner type="error" message={this.state.errMessage} closable />
+            ) : null
+          }
+          <Form style={{width: '300px', marginTop: '20px'}} onSubmit={this.handleSubmit}>
             <FormItem>
-              {getFieldDecorator('userName', {
+              {getFieldDecorator('username', {
                 rules: [{ required: true, message: 'Please input your username!' }],
-                initialValue: this.state.username,
               })(
                 <Input
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -46,7 +53,6 @@ class Login extends Component{
             <FormItem>
               {getFieldDecorator('password', {
                 rules: [{ required: true, message: 'Please input your Password!' }],
-                initialValue: this.state.password,
               })(
                 <Input
                   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -55,18 +61,18 @@ class Login extends Component{
             </FormItem>
 
             <FormItem>
-              {getFieldDecorator('remember', {
-                valuePropName: 'checked',
-                initialValue: true,
-              })(
-                <Checkbox>Remember me</Checkbox>
-              )}
-              <a className={Styles.forgot} href="">Forgot password</a>
               <Button type="primary" htmlType="submit" className={Styles.button}>
                 Log in
               </Button>
-              Or <a href="">register now!</a>
             </FormItem>
+            <div className={Styles.userNotice}>
+              <p className="center flex1">
+                username: guest
+              </p>
+              <p className="center flex1">
+                password: guest
+              </p>
+            </div>
           </Form>
         </div>
 

@@ -10,7 +10,7 @@ function RouterConfig({ history, app }) {
       key: 0,
       path: '/index',
       models: () => [import('./models/example')],
-      component: () => import('./routes/IndexPage')
+      component: () => import('./routes/Main')
     },{
       key: 1,
       path: '/user',
@@ -24,7 +24,7 @@ function RouterConfig({ history, app }) {
     }
   ];
   return (
-    <Router class='wrap' history={history}>
+    <Router class='wrapper' history={history}>
       <Switch>
         <Route path="/" exact render={() => (<Redirect to='/login' />)} />
         {

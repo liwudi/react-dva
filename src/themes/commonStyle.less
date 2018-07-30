@@ -1,0 +1,24 @@
+@import "./defaultTheme.less";
+:global {
+  html, body, #root, .wrapper{
+    height: 100%;
+    width: 100%;
+  }
+  #root{
+    background-color: @bgColor;
+  }
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex1{
+    flex: 1;
+  }
+  .flex-box{
+    display: flex;
+  }
+  .flex-col{
+    flex-direction: column;
+  }
+}
