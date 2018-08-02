@@ -21,6 +21,31 @@ function RouterConfig({ history, app }) {
       path: '/login',
       models: () => [import('./models/user')],
       component: () => import('./routes/User/Login')
+    },{
+      key: 3,
+      path: '/dashboard',
+      models: () => [import('./models/user')],
+      component: () => import('./routes/Dashboard/index')
+    },{
+      key: 4,
+      path: '/dashboard/charts/echarts',
+      models: () => [import('./models/user')],
+      component: () => import('./routes/Charts/Echarts')
+    },{
+      key: 5,
+      path: '/dashboard/charts/hcharts',
+      models: () => [import('./models/user')],
+      component: () => import('./routes/Charts/Hcharts')
+    },{
+      key: 6,
+      path: '/dashboard/userlist',
+      models: () => [import('./models/user')],
+      component: () => import('./routes/UserManage/UserList')
+    },{
+      key: 7,
+      path: '/dashboard/adduser',
+      models: () => [import('./models/user')],
+      component: () => import('./routes/UserManage/AddUser')
     }
   ];
   return (
