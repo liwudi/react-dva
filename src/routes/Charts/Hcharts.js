@@ -7,9 +7,9 @@ import Page from '../../components/Page';
 export default class Hcharts extends Component{
   render(){
     return (
-      <Page>
+      <div>
         Hcharts
-      </Page>
+      </div>
     )
   }
 }

@@ -22,22 +22,22 @@ const Page = (props) => {
           defaultOpenKeys={['sub1']}
           mode="inline"
         >
-          <Menu.Item key="0"><NavLink to="/index/dashboard"><Icon type="pie-chart" /><span>dashboard</span></NavLink></Menu.Item>
+          <Menu.Item key="0"><NavLink exact to="/dashboard/index"><Icon type="pie-chart" /><span>dashboard</span></NavLink></Menu.Item>
 
           <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>User</span></span>}>
             <Menu.Item key="3">
-              <NavLink to="/index/userlist"><span>userList</span></NavLink>
+              <NavLink to="/dashboard/userlist"><span>userList</span></NavLink>
             </Menu.Item>
             <Menu.Item key="4">
-              <NavLink to="/index/adduser"><span>addUser</span></NavLink>
+              <NavLink to="/dashboard/adduser"><span>addUser</span></NavLink>
             </Menu.Item>
           </SubMenu>
           <SubMenu key="sub3" title={<span><Icon type="appstore" /><span>Charts</span></span>}>
             <Menu.Item key="5">
-              <NavLink to="/index/echart"><span>echart</span></NavLink>
+              <NavLink to="/dashboard/echart"><span>echart</span></NavLink>
             </Menu.Item>
             <Menu.Item key="6">
-              <NavLink to="/index/hchart"><span>hchart</span></NavLink>
+              <NavLink to="/dashboard/hchart"><span>hchart</span></NavLink>
             </Menu.Item>
           </SubMenu>
           <SubMenu key="sub4" title={<span><Icon type="appstore" /><span>Posts</span></span>}>

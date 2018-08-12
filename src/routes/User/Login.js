@@ -23,7 +23,7 @@ class Login extends Component{
         if (values.username !== this.props.user.username || values.username !== this.props.user.username) {
           this.state.errMessage = "用户名或密码错误";
         } else {
-          this.props.dispatch(routerRedux.push('/dashboard'));
+          this.props.dispatch(routerRedux.push('/dashboard/index'));
         }
       }
     });

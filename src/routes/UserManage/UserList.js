@@ -7,9 +7,9 @@ import Page from '../../components/Page';
 export default class UserList extends Component{
   render(){
     return (
-      <Page>
+      <div>
         userList
-      </Page>
+      </div>
     )
   }
 }

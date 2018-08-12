@@ -2,7 +2,8 @@ import React from 'react';
 import { Router, Route, Switch, Redirect } from 'dva/router';
 import dynamic from 'dva/dynamic'
 
-import Error from './routes/Error/Error'
+import Error from './routes/Error/Error';
+import Page from './components/Page';
 
 function RouterConfig({ history, app }) {
   const routes = [
@@ -23,17 +24,17 @@ function RouterConfig({ history, app }) {
       component: () => import('./routes/User/Login')
     },{
       key: 3,
-      path: '/dashboard',
+      path: '/dashboard/index',
       models: () => [import('./models/user')],
       component: () => import('./routes/Dashboard/index')
     },{
       key: 4,
-      path: '/dashboard/charts/echarts',
+      path: '/dashboard/echart',
       models: () => [import('./models/user')],
       component: () => import('./routes/Charts/Echarts')
     },{
       key: 5,
-      path: '/dashboard/charts/hcharts',
+      path: '/dashboard/hchart',
       models: () => [import('./models/user')],
       component: () => import('./routes/Charts/Hcharts')
     },{
@@ -50,6 +51,7 @@ function RouterConfig({ history, app }) {
   ];
   return (
     <Router class='wrapper' history={history}>
+      <Page>
       <Switch>
         <Route path="/" exact render={() => (<Redirect to='/login' />)} />
         {
@@ -68,6 +70,7 @@ function RouterConfig({ history, app }) {
         }
         <Route component={Error} />
       </Switch>
+      </Page>
     </Router>
   );
 }

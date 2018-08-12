@@ -7,9 +7,9 @@ import Page from '../../components/Page';
 export default class Echarts extends Component{
   render(){
     return (
-      <Page>
+      <div>
         Echarts
-      </Page>
+      </div>
     )
   }
 }

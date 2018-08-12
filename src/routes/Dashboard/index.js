@@ -4,12 +4,12 @@
 import React, { Component } from 'react';
 import Page from '../../components/Page'
 export default class Dashboard extends Component {
-  
+
   render(){
     return (
-      <Page>
+      <div>
         dashboard
-      </Page>
+      </div>
     )
   }
 }
