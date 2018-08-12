@@ -1,0 +1,28 @@
+@import "../../themes/defaultTheme";
+.dashboard {
+  padding: 20px;
+}
+.countInfo {
+
+}
+.card{
+  height: 100px;
+  display: flex;
+  .icon{
+    width: 100px;
+  }
+  .info{
+    flex: 1;
+    font-size: 24px;
+    padding-top: 15px;
+    color: @fontColor;
+    .title{
+      max-width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 20px;
+      color: @fontColorArticle;
+    }
+  }
+}
