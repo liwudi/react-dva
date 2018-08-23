@@ -8,19 +8,19 @@
 
 ```bash
 ├── /dist/           # 项目输出目录
+├── /piblic/         # 公用打包文件，编译时copy至dist目录
 ├── /src/            # 项目源码目录
-│ ├── /public/       # 公共文件，编译时copy至dist目录
-│ ├── /components/   # UI组件及UI相关方法
-│ │ ├── skin.less    # 全局样式
-│ │ └── vars.less    # 全局样式变量
+│ ├── /assets/       # 放一些公共资源，比如png图片等
+│ ├── /common/       # 放一些公用代码，比如route配置文件
+│ ├── /components/   # 组件及UI相关方法
 │ ├── /routes/       # 路由组件
-│ │ └── app.js       # 路由入口
 │ ├── /models/       # 数据模型
 │ ├── /services/     # 数据接口
 │ ├── /themes/       # 项目样式
 │ ├── /mock/         # 数据mock
 │ ├── /utils/        # 工具函数
 │ │ ├── config.js    # 项目常规配置
+│ │ ├── dynamic.js   # 实现异步组件加载的关键
 │ │ ├── menu.js      # 菜单及面包屑配置
 │ │ ├── config.js    # 项目常规配置
 │ │ ├── request.js   # 异步请求函数
