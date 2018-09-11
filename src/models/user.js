@@ -32,7 +32,7 @@ export default {
     setup({ dispatch, history }){
       return history.listen(({ pathname }) => {
         if (pathname === '/login') {
-          dispatch({ type: 'fetch' });
+          //dispatch({ type: 'fetch' });
         }
       });
     },

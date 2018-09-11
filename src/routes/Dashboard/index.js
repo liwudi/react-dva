@@ -6,7 +6,15 @@ import CountUp from 'react-countup';
 import { Row, Col, Icon } from 'antd';
 import Page from '../../components/Page';
 import Styles from './index.less';
+import { connect } from 'dva';
+import echarts from 'echarts';
 
+@connect((state)=>{
+  console.log(state);
+  return {
+    dashboard: state.dashboard
+  }
+})
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -31,8 +39,31 @@ export default class Dashboard extends Component {
         title: 'dislike',
         number: 25,
         color: '#ef6f6f'
-      }]
+      }],
+      option: {
+        title: {
+          text: '用户访问趋势图'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          type: 'line'
+        }]
+      },
     }
+  }
+  componentDidMount(){
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.setOption(this.state.option);
+  }
+  componentWillReceiveProps(nextProps){
+    console.log('nextProps', nextProps)
   }
 
   render(){
@@ -58,9 +89,18 @@ export default class Dashboard extends Component {
               })
             }
           </Row>
-          <Row>
-            <Col>
-              
+          <Row style={{marginTop: '20px'}}>
+            <Col span={16}>
+              <div style={{background:'#fff'}}>
+                <div id="main" style={{height: '300px'}}>
+
+                </div>
+              </div>
+            </Col>
+            <Col span={8}>
+              <div style={{background:'red'}}>
+                我是中国人
+              </div>
             </Col>
           </Row>
 

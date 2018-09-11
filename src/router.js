@@ -10,13 +10,13 @@ function RouterConfig({ history, app }) {
     {
       key: 0,
       path: '/login',
-      models: () => [import('./models/user')],
+      models: () => [import('./models/user'), import('./models/dashboard')],
       component: () => import('./routes/User/Login')
     },
     {
       key: 1,
       path: '/index',
-      models: () => [import('./models/user')],
+      models: () => [import('./models/user'), import('./models/dashboard')],
       component: () => import('./layout/MainLayout')
     }
   ];

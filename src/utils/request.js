@@ -1,4 +1,4 @@
-import fetch from 'dva/fetch';
+// import fetch from 'dva/fetch';
 import axios from 'axios';
 
 function parseJSON(response) {
@@ -9,7 +9,6 @@ function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
-
   const error = new Error(response.statusText);
   error.response = response;
   throw error;
@@ -23,15 +22,9 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(url, options) {
-  return fetch(url, options)
+  return fetch(url)
     .then(checkStatus)
     .then(parseJSON)
     .then(data => ({ data }))
     .catch(err => ({ err }));
-}
-export function get(param) {
-  return axios.get('/api1/users').then(res => {
-    console.log('users',res)
-    return res
-  })
 }
