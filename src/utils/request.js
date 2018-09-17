@@ -1,4 +1,4 @@
-// import fetch from 'dva/fetch';
+import fetch from 'dva/fetch';
 import axios from 'axios';
 
 function parseJSON(response) {
@@ -6,6 +6,7 @@ function parseJSON(response) {
 }
 
 function checkStatus(response) {
+  console.log('request', response);
   if (response.status >= 200 && response.status < 300) {
     return response;
   }

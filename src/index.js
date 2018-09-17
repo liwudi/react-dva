@@ -3,10 +3,6 @@ import { message } from 'antd';
 import createLoading from 'dva-loading';
 import { createLogger } from 'redux-logger';
 import './themes/commonStyle.less';
-// import { query } from './services/example'
-// query().then(res => {
-//   console.log('res',res)
-// })
 
 const log = createLogger({ collapsed: true })
 // 1. Initialize
@@ -14,7 +10,6 @@ const app = dva({
   onError: function(e){
     message.error(e.message, /* duration */3);
   },
-  //onAction: log,
 });
 console.log(app._store);
 

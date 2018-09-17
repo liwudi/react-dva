@@ -4,7 +4,7 @@
 import request from '../utils/request';
 import config from '../utils/config';
 
-const url = 'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key='+config.key;
+const url = 'http://wthrcdn.etouch.cn/weather_mini?city=北京市';
 
 export async function getWeatherInfo() {
   return request(url)

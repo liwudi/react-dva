@@ -3,10 +3,24 @@
  */
 import React from 'react';
 import { Route, NavLink, Router, Switch,Redirect } from 'dva/router';
-import { Menu, Icon, Avatar } from 'antd';
+import { Menu, Icon, Avatar, Dropdown } from 'antd';
 
 import styles from './index.less';
 const SubMenu = Menu.SubMenu;
+
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      个人中心
+    </Menu.Item>
+    <Menu.Item key="1">
+      我的订单
+    </Menu.Item>
+    <Menu.Item key="3">
+      退出登陆
+    </Menu.Item>
+  </Menu>
+);
 
 const Page = (props) => {
   return (
@@ -46,9 +60,17 @@ const Page = (props) => {
           </SubMenu>
         </Menu>
       </div>
-      <div className={`flex1`}>
-        <div className={styles.header}></div>
-        <div>
+      <div className={`flex1 flex-box flex-col`}>
+        <div className={`${styles.header}`}>
+          <div className={`${styles.loginStatus} center`}>
+            <Dropdown overlay={menu} trigger={['click']}>
+              <a className="ant-dropdown-link" href="#">
+                Click me <Icon type="down" />
+              </a>
+            </Dropdown>
+          </div>
+        </div>
+        <div className={`${styles.content} flex1`}>
           {props.children}
         </div>
       </div>

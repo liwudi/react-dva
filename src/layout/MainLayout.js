@@ -23,7 +23,7 @@ export default class MainLayout extends Component{
                 );
               })
             }
-            <Redirect from="/index" to="/index/index" />
+            <Redirect from="/index" to="/index/dashboard" />
           </Switch>
         </Router>
       </Page>

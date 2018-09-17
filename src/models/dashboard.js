@@ -13,6 +13,12 @@ export default {
     *getWeatherInfo({ payload }, { call, put }) {
       const res = yield call(getWeatherInfo);
       console.log('getWeatherInfo',res);
+      yield put({
+        type: 'updateState',
+        payload: {
+          weatherInfo: res.data
+        }
+      });
     }
   },
   reducers: {

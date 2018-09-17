@@ -4,26 +4,25 @@ import dynamic from 'dva/dynamic'
 
 import Error from './routes/Error/Error';
 import Page from './components/Page';
+const layoutRoutes = [
+  {
+    key: 0,
+    path: '/login',
+    models: () => [import('./models/user'), import('./models/dashboard')],
+    component: () => import('./routes/User/Login')
+  },
+  {
+    key: 1,
+    path: '/index',
+    models: () => [import('./models/user'), import('./models/dashboard')],
+    component: () => import('./layout/MainLayout')
+  }
+];
 
 function RouterConfig({ history, app }) {
-  const layoutRoutes = [
-    {
-      key: 0,
-      path: '/login',
-      models: () => [import('./models/user'), import('./models/dashboard')],
-      component: () => import('./routes/User/Login')
-    },
-    {
-      key: 1,
-      path: '/index',
-      models: () => [import('./models/user'), import('./models/dashboard')],
-      component: () => import('./layout/MainLayout')
-    }
-  ];
   return (
     <Router class='wrapper' history={history}>
       <Switch>
-        <Route path="/" exact render={() => (<Redirect to='/login' />)} />
         {
           layoutRoutes.map(({path, key, ...dynamics}) => {
             return (
@@ -38,6 +37,7 @@ function RouterConfig({ history, app }) {
             )
           })
         }
+        <Route path="/" exact render={() => (<Redirect to='/login' />)} />
         <Route component={Error} />
       </Switch>
     </Router>
