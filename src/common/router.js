@@ -26,7 +26,7 @@ const routes = [
     key: 4,
     path: '/dashboard/echart',
     models: () => [import('../models/user')],
-    component: () => import('../routes/Charts/Echarts')
+    component: () => import('../routes/Charts/Echarts/index')
   },{
     key: 5,
     path: '/dashboard/hchart',
@@ -69,7 +69,7 @@ const routes1 = [
   {
     key: 4,
     path: '/index/echart',
-    component: import('../routes/Charts/Echarts')
+    component: import('../routes/Charts/Echarts/index')
   },
   {
     key: 5,
