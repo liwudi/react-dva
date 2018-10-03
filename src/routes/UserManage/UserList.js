@@ -2,14 +2,23 @@
  * Created by mapbar_front on 2018/7/30.
  */
 import React, { Component } from 'react';
-import Page from '../../components/Page';
+import { Table } from 'antd';
+import { connect } from 'dva';
+import { columns } from './UserConfig';
 
-export default class UserList extends Component{
+class UserList extends Component{
   render(){
+    const { data, page }= this.props.user.users;
     return (
-      <div>
-        userList
+      <div style={{ margin: '20px', background: '#fff' }}>
+        <Table dataSource={data} columns={columns} />
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    user: state.user
+  }
+})(UserList);

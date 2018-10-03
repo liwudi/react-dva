@@ -9,15 +9,18 @@ const data = mockjs.mock({
     'name': () => {
       return Random.cname();
     },
-    'mobile': /1(3[0-9]|4[57]|5[0-35-9]|7[01678]|8[0-9])\d{8}/,
+    'age|18-100': 1,
+    'phone': /1(3[0-9]|4[57]|5[0-35-9]|7[01678]|8[0-9])\d{8}/,
     'avatar': () => {
-      return Random.image('125x125');
+      return Random.image('36x36');
     },
     'status|1-2': 1,
     'email': () => {
       return Random.email('visiondk.com');
     },
     'isadmin|0-1': 1,
+    'gender|0-1': 1,
+    'address': '中国北京市',
     'created_at': () => {
       return Random.datetime('yyyy-MM-dd HH:mm:ss');
     },
@@ -30,6 +33,7 @@ const data = mockjs.mock({
     current: 1,
   },
 });
+console.log(data);
 const datas = {
   'GET /api1/users': data,
 }
