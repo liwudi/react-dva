@@ -8,16 +8,17 @@ import Highcharts from 'highcharts/highstock';
 import * as Exporting from 'highcharts/modules/exporting';
 
 import MyCharts from '../../../components/Echarts';
+import HCharts from '../../../components/Hcharts';
 import styles from './index.less';
-
+import { options, options_BrokenLine, options_Bar } from './dataSource';
 // 初始化导出模块
 Exporting(Highcharts);
-
 
 export default class Echarts extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      changeData: 0,
       option: {
         title: {
           text: '用户访问趋势图'
@@ -53,38 +54,12 @@ export default class Echarts extends Component{
     }
   }
   componentDidMount() {
-    var options = {
-      chart: {
-        type: 'bar',
-      },
-      title: {
-        text: '我的第一个图表',
-      },
-      xAxis: {
-        categories: ['苹果', '香蕉', '橙子'],
-      },
-      yAxis: {
-        title: {
-          text: '吃水果个数',
-        }
-      },
-      series: [{
-        name: '小明',
-        data: [1, 0, 4],
-      }, {
-        name: '小红',
-        data: [5, 7, 3],
-      }]
-    };
-
-
-    this.timer = 0;
     window.onresize = () => {
-      clearTimeout(this.timer);
+      this.timer && clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        this.charts && this.charts.destroy()
-        // this.charts && this.charts.reflow();
-        this.charts = Highcharts.chart('container', options);
+        this.setState({
+          changeData: Math.random()
+        })
       }, 300)
     }
   }
@@ -95,14 +70,18 @@ export default class Echarts extends Component{
     return (
       <div className={styles.echarts}>
         <div className="flex1 flexBox">
-          <div className="flex1">
-            {/*<MyCharts options={this.state.option}></MyCharts>*/}
+          <div className="flex1 padding5">
+            <HCharts change={this.state.changeData} options={options}></HCharts>
           </div>
-          <div ref={dom => this.dom = dom} id='container' className="flex1"></div>
+          <div className="flex1 padding5">
+            <HCharts change={this.state.changeData} options={options_BrokenLine}></HCharts>
+          </div>
         </div>
         <div className="flex1 flexBox">
-          <div className="flex1"></div>
-          <div className="flex1">
+          <div className="flex1 padding5">
+            <HCharts change={this.state.changeData} options={options_Bar}></HCharts>
+          </div>
+          <div className="flex1 padding5">
             <MyCharts options={this.state.option2}></MyCharts>
           </div>
         </div>
