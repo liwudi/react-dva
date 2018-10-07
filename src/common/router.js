@@ -74,7 +74,7 @@ const routes1 = [
   {
     key: 5,
     path: '/index/hchart',
-    component: import('../routes/Charts/Hcharts')
+    component: import('../routes/Charts/Hcharts/index')
   }
 ];
 
