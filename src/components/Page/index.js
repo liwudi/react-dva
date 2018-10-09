@@ -36,9 +36,9 @@ const Page = (props) => {
           defaultOpenKeys={['sub1']}
           mode="inline"
         >
-          <Menu.Item key="0"><NavLink exact to="/index/dashboard"><Icon type="pie-chart" /><span>dashboard</span></NavLink></Menu.Item>
+          <Menu.Item key="0"><NavLink exact to="/index/dashboard"><Icon type="dashboard" theme="outlined" /><span>dashboard</span></NavLink></Menu.Item>
 
-          <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>User</span></span>}>
+          <SubMenu key="sub2" title={<span><Icon type="user" theme="Filled" /><span>User</span></span>}>
             <Menu.Item key="3">
               <NavLink to="/index/userlist"><span>userList</span></NavLink>
             </Menu.Item>
@@ -46,7 +46,7 @@ const Page = (props) => {
               <NavLink to="/index/adduser"><span>addUser</span></NavLink>
             </Menu.Item>
           </SubMenu>
-          <SubMenu key="sub3" title={<span><Icon type="appstore" /><span>Charts</span></span>}>
+          <SubMenu key="sub3" title={<span><Icon type="area-chart" theme="Filled" /><span>Charts</span></span>}>
             <Menu.Item key="5">
               <NavLink to="/index/echart"><span>echart</span></NavLink>
             </Menu.Item>

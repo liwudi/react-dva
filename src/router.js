@@ -14,7 +14,7 @@ const layoutRoutes = [
   {
     key: 1,
     path: '/index',
-    models: () => [import('./models/user'), import('./models/dashboard')],
+    models: () => [import('./models/user'), import('./models/dashboard'), import('./models/hcharts')],
     component: () => import('./layout/MainLayout')
   }
 ];
