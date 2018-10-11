@@ -1,10 +1,8 @@
 import dva from 'dva';
 import { message } from 'antd';
 import createLoading from 'dva-loading';
-import { createLogger } from 'redux-logger';
 import './themes/commonStyle.less';
 
-const log = createLogger({ collapsed: true })
 // 1. Initialize
 const app = dva({
   onError: function(e){

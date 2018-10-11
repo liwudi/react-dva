@@ -47,10 +47,10 @@ export default class Echarts extends Component{
   render(){
     return (
       <div className={styles.echarts}>
-        <div className="flex1">
+        <div className={styles.chartItem}>
           <MyCharts options={this.state.option}></MyCharts>
         </div>
-        <div className="flex1">
+        <div className={styles.chartItem}>
           <MyCharts options={this.state.option2}></MyCharts>
         </div>
       </div>

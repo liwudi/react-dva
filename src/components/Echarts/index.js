@@ -4,28 +4,42 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import echarts from "echarts";
-
+import SizeSensor, { clear, bind} from 'size-sensor'
 export default class Mycharts extends Component {
-  componentDidMount(){
-    this.initMyCharts();
+  constructor(props) {
+    super(props);
+    this.chart = null;
     this.timer = 0;
-    window.onresize = () => {
-      this.myChart.dispose();
-      clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        this.initMyCharts();
-        // this.myChart.resize();
-      }, 200);
+    this.echartsLib = echarts;
+  }
+  componentDidMount(){
+    this.rerenderCharts();
+  }
+  disposeCharts() {
+    if (this.chart) {
+      try {
+        clear(this.chart)
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+    this.myChart.dispose(this.chart);
+  }
+  rerenderCharts() {
+    this.myChart = this.getEchartsInstance();
+    this.myChart.setOption(this.props.options);
+    if (this.chart) {
+      bind(this.chart, () => {
+        this.myChart.resize();
+      })
     }
   }
-  initMyCharts() {
-    this.myChart = echarts.init(this.chart);
-    this.myChart.setOption(this.props.options);
+  getEchartsInstance() {
+    const echartInstance = echarts.getInstanceByDom(this.chart) || echarts.init(this.chart)
+    return echartInstance;
   }
   componentWillUnmount(){
     this.myChart.dispose();
-    clearTimeout(this.timer);
-    window.onresize = () => {};
   }
   render(){
     return (
