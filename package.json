@@ -21,7 +21,8 @@
     "react-countup": "^4.0.0-alpha.2",
     "react-dom": "^16.2.0",
     "redux-logger": "^3.0.6",
-    "size-sensor": "^0.2.2"
+    "size-sensor": "^0.2.2",
+    "wd-echarts-react": "^1.0.3"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
