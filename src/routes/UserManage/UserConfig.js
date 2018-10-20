@@ -7,7 +7,7 @@ const columns = [{
   title: 'Avatar',
   dataIndex: 'avatar',
   key: 'avatar',
-  render: text => <img src={text}></img>
+  render: text => <img alt={'user image'} src={text}></img>
 }, {
   title: 'Name',
   dataIndex: 'name',

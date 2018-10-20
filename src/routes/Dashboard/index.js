@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import { Row, Col, Icon, List, Card } from 'antd';
-import Page from '../../components/Page';
 import Styles from './index.less';
 import { connect } from 'dva';
 import echarts from 'echarts';

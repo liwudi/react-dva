@@ -2,8 +2,6 @@
  * Created by mapbar_front on 2018/9/18
  */
 import React, { Component } from 'react';
-import echarts from 'echarts';
-import MyCharts from '../../../components/Echarts';
 import WdEchartsReact from 'wd-echarts-react';
 import styles from './index.less';
 import { options_bar, options_pie } from './dataSource';

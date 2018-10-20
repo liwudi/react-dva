@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import echarts from "echarts";
-import SizeSensor, { clear, bind} from 'size-sensor'
+import DomSize from 'wd-domsize-monitor';
 export default class Mycharts extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ export default class Mycharts extends Component {
   disposeCharts() {
     if (this.chart) {
       try {
-        clear(this.chart)
+        DomSize.remove(this.chart)
       } catch (e) {
         console.warn(e);
       }
@@ -29,7 +29,7 @@ export default class Mycharts extends Component {
     this.myChart = this.getEchartsInstance();
     this.myChart.setOption(this.props.options);
     if (this.chart) {
-      bind(this.chart, () => {
+      DomSize.bind(this.chart, () => {
         this.myChart.resize();
       })
     }

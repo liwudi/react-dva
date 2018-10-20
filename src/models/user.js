@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/7/10.
  */
 // import fetchUsers from '../services/users';
-import { getUser, fetchUsers } from '../services/users';
+import { fetchUsers } from '../services/users';
 export default {
   namespace: 'user',
   state: {

@@ -8,7 +8,7 @@ import { columns } from './UserConfig';
 
 class UserList extends Component{
   render(){
-    const { data, page }= this.props.user.users;
+    const { data }= this.props.user.users;
     return (
       <div style={{ margin: '20px', background: '#fff' }}>
         <Table dataSource={data} columns={columns} />

@@ -22,6 +22,12 @@ var data = {
       "extraBabelPlugins": [
         "dva-hmr"
       ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-remove-console"
+      ]
     }
-  }
+  },
+  "hash": true,
 }

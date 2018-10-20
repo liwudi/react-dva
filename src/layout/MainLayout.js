@@ -8,7 +8,6 @@ import dynamicFn from '../utils/dynamic';
 
 import { Router, Route, Switch, Redirect } from 'dva/router';
 import routes from '../common/router';
-const app = window.app;
 
 export default class MainLayout extends Component{
   render(){
