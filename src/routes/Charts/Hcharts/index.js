@@ -14,37 +14,23 @@ import { options, options_BrokenLine, options_Bar, options_area, CHINA } from '.
 Exporting(Highcharts);
 
 export default class Echarts extends Component{
-  componentDidMount() {
-    window.onresize = () => {
-      this.timer && clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        this.setState({
-          changeData: Math.random()
-        })
-      }, 300)
-    }
-    // const url = 'https://data.jianshukeji.com/geochina/china.js';
-  }
-  componentWillUnmount() {
-    window.onresize = function () {}
-  }
   render(){
     return (
       <div className={styles.echarts}>
 
         <div className={styles.charts}>
           <div style={{ width: '50%', minHeight: '300px', float: 'left' }} className="padding5">
-            <HCharts change={this.state.changeData} options={options}></HCharts>
+            <HCharts options={options}></HCharts>
           </div>
           <div style={{ width: '50%', minHeight: '300px', float: 'left' }} className="padding5">
-            <HCharts change={this.state.changeData} options={options_BrokenLine}></HCharts>
+            <HCharts options={options_BrokenLine}></HCharts>
           </div>
 
           <div style={{ width: '50%', minHeight: '300px', float: 'left' }} className="padding5">
-            <HCharts change={this.state.changeData} options={options_Bar}></HCharts>
+            <HCharts options={options_Bar}></HCharts>
           </div>
           <div style={{ width: '50%', minHeight: '300px', float: 'left' }} className="padding5">
-            <HCharts options={this.state.changeData} options={options_area}></HCharts>
+            <HCharts options={options_area}></HCharts>
           </div>
         </div>
         <div id='container' className={`${styles.map}`}>
